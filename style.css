@@ -1,6 +1,6 @@
 html {
   font-size: 10px;
-  background: url(static/bg.jpg) bottom center;
+  background: url(static/bg.jpg) no-repeat;
   background-size: cover;
 }
 
@@ -16,6 +16,10 @@ body,html {
 
 #key-table {
   margin-top: -10%;
+}
+
+#readout {
+  color: lime;
 }
 
 .keys {

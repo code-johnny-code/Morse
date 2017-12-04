@@ -17,18 +17,70 @@
 
 <div id="waveform"></div>
 
-<form>
-  <input type="submit" value="Play Morse">
+<form action="" method="get">
+  <input type="text" name="formText">
+  <input type="button" value="Play Morse" onclick="textToMorse(this.form)">
 </form>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.4.0/wavesurfer.min.js"></script>
-<script src="js/alphabet.js"></script>
-<script src="js/soundboard.js"></script>
+<div id="readout">
+  <h1 id="code-text"></h1>
+</div>
 
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.4.0/wavesurfer.min.js"></script>
 <script src="js/alphabet.js"></script>
-<script src="js/soundboard.js"></script>
+<script>
+    var wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        waveColor: 'lime',
+        interact: false,
+        hideScrollbar: true
+    });
+
+    var transmission = "";
+//    Note for transmission construction: "The letters of a word are separated by a space
+// equal to three dots (one dash), and the words are separated by a space equal to seven dots."
+  function textToMorse(form) {
+      var userInput = form.formText.value;
+      var userInputArray = userInput.split(' ');
+      var codedOutput = "";
+      for (var word of userInputArray) {
+          word = word.replace(/[^0-9a-z]/gi, '');
+          for (var letter of word) {
+              var letterObject = alphabet[letter.toUpperCase()];
+              codedOutput = codedOutput + letterObject.code + ' ';
+              
+//              var audio = document.createElement('audio');
+//              audio.src = letterObject.audio;
+//              wavesurfer.load(letterObject.audio);
+//              audio.play();
+
+          }
+          codedOutput = codedOutput + '| '
+      }
+      const codeText = document.getElementById("code-text");
+      codeText.innerHTML = codedOutput.slice(0, -2);
+  }
+
+//    function buildTransmission(letter) {
+//      var letterAudio =
+//        var songs = Array("en_ra1.mp3", "en_ra2.mp3", "en_ra3.mp3", "en_ra0.mp3");
+//        playlist = songs.length;
+//        if (current == playlist) {
+//            //do nothing or stop
+//        } else {
+//            this.playOptions = document.getElementById("audio");
+//            this.playOptions.src = songs[current];
+//            this.playOptions.play();
+//        }
+//    }
+//
+//  function playTransmission(codeString) {
+//      console.log(codeString)
+//  }
+
+</script>
+
 
 </body>
 </html>

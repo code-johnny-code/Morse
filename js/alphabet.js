@@ -1,12 +1,12 @@
 const alphabet = {
     "A": {
-        "code": "* _",
+        "code": "* -",
         "spoken": "DIT-DAH",
         "audio": "sounds/A_morse_code.ogg",
         "key": "65"
     },
     "B": {
-        "code": "_ * * *",
+        "code": "- * * *",
         "spoken": "DAH-DIT-DIT-DIT",
         "audio": "sounds/B_morse_code.ogg",
         "key": "66"
