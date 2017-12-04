@@ -19,12 +19,14 @@ function playSound(e) {
         if (!audio) return;
         const key = document.querySelector(`[data-key="${e.keyCode}"]`);
         audio.onended = function () {
-            wavesurfer.empty()
+            wavesurfer.empty();
+            audioEnabled = true
         };
         wavesurfer.load(audio.src);
         key.classList.add('playing');
         audio.currentTime = 0;
         audio.play();
+        audioEnabled = false;
     }
 }
 
