@@ -1,4 +1,3 @@
-const keys = Array.from(document.querySelectorAll('.key'));
 
 var wavesurfer = WaveSurfer.create({
     container: '#waveform',
@@ -63,6 +62,8 @@ function keyBuilder(object) {
 
 keyBuilder(alphabet);
 keyBuilder(numbers);
+
+const keys = Array.from(document.querySelectorAll('.key'));
 
 keys.forEach(function(key) {
     key.addEventListener('transitionend', removeTransition)
