@@ -42,9 +42,6 @@ for (var letter in alphabet) {
     var newAudio = document.createElement("audio");
     newAudio.setAttribute("data-key",alphabet[letter]["key"]);
     newAudio.src = alphabet[letter]["audio"];
-    // newAudio.onended = function () {
-    //     wavesurfer.empty()
-    // };
     newTD.appendChild(newKbd);
     newTD.appendChild(newSpan);
     newTD.appendChild(newAudio);
