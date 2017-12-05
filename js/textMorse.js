@@ -39,13 +39,13 @@ function playTransmission(audioList) {
   wavesurfer.load(audioList[0]);
   audio.play();
   audio.onended = function() {
+      wavesurfer.empty();
     console.log(audio.src);
       if(index < audioList.length){
           wavesurfer.load(audioList[index])
           audio.src= audioList[index];
           audio.play();
           index++;
-          wavesurfer.empty();
       }
   }
 }
