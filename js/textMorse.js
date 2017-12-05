@@ -25,19 +25,15 @@ function textToMorse(form) {
           else {
               var letterObject = alphabet[letter.toUpperCase()];
               codedOutput = codedOutput + letterObject.code + ' ';
-              buildTransmission(letterObject.audio)
+              audioList.push(letterObject.audio)
           }
       }
-      codedOutput = codedOutput + '| ';
+      codedOutput = codedOutput + ' | ';
       audioList.push("sounds/space.ogg")
   }
   const codeText = document.getElementById("code-text");
   codeText.innerHTML = codedOutput.slice(0, -2);
   playTransmission(audioList);
-}
-
-function buildTransmission(audio) {
-  audioList.push(audio);
 }
 
 function playTransmission(audioList) {

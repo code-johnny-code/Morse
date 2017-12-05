@@ -29,6 +29,7 @@ function playSound(e) {
         audioEnabled = false;
     }
 }
+
 for (var letter in alphabet) {
     var newTD = document.createElement('td');
     newTD.setAttribute("data-key",alphabet[letter]["key"]);
