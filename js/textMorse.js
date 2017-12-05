@@ -27,9 +27,9 @@ function textToMorse(form) {
               codedOutput = codedOutput + letterObject.code + ' ';
               buildTransmission(letterObject.audio)
           }
-
       }
-      codedOutput = codedOutput + '| '
+      codedOutput = codedOutput + '| ';
+      audioList.push("sounds/space.ogg")
   }
   const codeText = document.getElementById("code-text");
   codeText.innerHTML = codedOutput.slice(0, -2);
@@ -44,7 +44,12 @@ function playTransmission(audioList) {
   var index = 1;
   var audio = document.createElement('audio');
   audio.src = audioList[0];
-  wavesurfer.load(audioList[0]);
+  console.log(audio.src);
+  if (audio.src === "sounds/space.ogg") {
+  }
+  else {
+      wavesurfer.load(audioList[0]);
+  }
   audio.play();
   audio.onended = function() {
       wavesurfer.empty();
