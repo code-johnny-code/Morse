@@ -18,8 +18,13 @@ body,html {
   margin-top: -10%;
 }
 
-#readout {
+#code-text {
   color: lime;
+}
+
+#inputs {
+  display: block;
+  text-align: center;
 }
 
 .keys {
