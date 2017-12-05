@@ -40,7 +40,6 @@ function playTransmission(audioList) {
   audio.play();
   audio.onended = function() {
       wavesurfer.empty();
-    console.log(audio.src);
       if(index < audioList.length){
           wavesurfer.load(audioList[index])
           audio.src= audioList[index];
