@@ -29,7 +29,6 @@ function playSound(e) {
         audioEnabled = false;
     }
 }
-
 for (var letter in alphabet) {
     var newTD = document.createElement('td');
     newTD.setAttribute("data-key",alphabet[letter]["key"]);
@@ -52,6 +51,27 @@ for (var letter in alphabet) {
         document.getElementById("second-row").appendChild(newTD);
     }
 }
+
+
+for (var number in numbers) {
+    var newTD = document.createElement('td');
+    newTD.setAttribute("data-key",numbers[number]["key"]);
+    newTD.className = "key";
+    var newKbd = document.createElement('kbd');
+    newKbd.innerHTML = number;
+    var newSpan = document.createElement('span');
+    newSpan.className = "sound";
+    newSpan.innerHTML = numbers[number]["spoken"] + '<br>' + numbers[number]["code"];
+    var newAudio = document.createElement("audio");
+    newAudio.setAttribute("data-key",numbers[number]["key"]);
+    newAudio.src = numbers[number]["audio"];
+    newTD.appendChild(newKbd);
+    newTD.appendChild(newSpan);
+    newTD.appendChild(newAudio);
+    console.log(document.getElementById("number-row"));
+    document.getElementById("number-row").appendChild(newTD);
+}
+
 const keys = Array.from(document.querySelectorAll('.key'));
 keys.forEach(function(key) {
     key.addEventListener('transitionend', removeTransition)

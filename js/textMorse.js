@@ -17,9 +17,17 @@ function textToMorse(form) {
   for (var word of userInputArray) {
       word = word.replace(/[^0-9a-z]/gi, '');
       for (var letter of word) {
-          var letterObject = alphabet[letter.toUpperCase()];
-          codedOutput = codedOutput + letterObject.code + ' ';
-          buildTransmission(letterObject.audio)
+          if (letter in ['0','1','2','3','4','5','6','7','8','9']) {
+              var letterObject = numbers[letter];
+              codedOutput = codedOutput + letterObject.code + ' ';
+              buildTransmission(letterObject.audio)
+          }
+          else {
+              var letterObject = alphabet[letter.toUpperCase()];
+              codedOutput = codedOutput + letterObject.code + ' ';
+              buildTransmission(letterObject.audio)
+          }
+
       }
       codedOutput = codedOutput + '| '
   }
