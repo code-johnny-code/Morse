@@ -47,4 +47,5 @@ function playTransmission(audioList) {
           index++;
       }
   }
+  wavesurfer.empty();
 }
