@@ -20,7 +20,7 @@ function textToMorse(form) {
           if (letter in ['0','1','2','3','4','5','6','7','8','9']) {
               var letterObject = numbers[letter];
               codedOutput = codedOutput + letterObject.code + ' ';
-              buildTransmission(letterObject.audio)
+              audioList.push(letterObject.audio)
           }
           else {
               var letterObject = alphabet[letter.toUpperCase()];
