@@ -6,8 +6,7 @@ var wavesurfer = WaveSurfer.create({
 });
 var audioList = new Array();
 var transmission = "";
-//    Note for transmission construction: "The letters of a word are separated by a space
-// equal to three dots (one dash), and the words are separated by a space equal to seven dots."
+
 function textToMorse(form) {
   transmission = "";
   audioList = [];

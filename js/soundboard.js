@@ -69,7 +69,6 @@ for (var number in numbers) {
     newTD.appendChild(newKbd);
     newTD.appendChild(newSpan);
     newTD.appendChild(newAudio);
-    console.log(document.getElementById("number-row"));
     document.getElementById("number-row").appendChild(newTD);
 }
 
