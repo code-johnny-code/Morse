@@ -45,7 +45,7 @@ function playTransmission(audioList) {
           audio.src= audioList[index];
           audio.play();
           index++;
+          wavesurfer.empty();
       }
-    wavesurfer.empty();
   }
 }
