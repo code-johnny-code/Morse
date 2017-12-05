@@ -15,16 +15,16 @@ function textToMorse(form) {
   var codedOutput = "";
   for (var word of userInputArray) {
       word = word.replace(/[^0-9a-z]/gi, '');
-      for (var letter of word) {
-          if (letter in ['0','1','2','3','4','5','6','7','8','9']) {
-              var letterObject = numbers[letter];
-              codedOutput = codedOutput + letterObject.code + ' ';
-              audioList.push(letterObject.audio)
+      for (var character of word) {
+          if (!isNaN(character)) {
+              var charObject = numbers[character];
+              codedOutput = codedOutput + charObject.code + ' ';
+              audioList.push(charObject.audio)
           }
           else {
-              var letterObject = alphabet[letter.toUpperCase()];
-              codedOutput = codedOutput + letterObject.code + ' ';
-              audioList.push(letterObject.audio)
+              var charObject = alphabet[character.toUpperCase()];
+              codedOutput = codedOutput + charObject.code + ' ';
+              audioList.push(charObject.audio)
           }
       }
       codedOutput = codedOutput + ' | ';
@@ -49,7 +49,7 @@ function playTransmission(audioList) {
   audio.onended = function() {
       wavesurfer.empty();
       if(index < audioList.length){
-          wavesurfer.load(audioList[index])
+          wavesurfer.load(audioList[index]);
           audio.src= audioList[index];
           audio.play();
           index++;
