@@ -4,7 +4,7 @@ var wavesurfer = WaveSurfer.create({
     interact: false,
     hideScrollbar: true
 });
-var audioList = new Array();
+var audioList = [];
 var transmission = "";
 
 function textToMorse(form) {

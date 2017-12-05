@@ -10,21 +10,9 @@ body,html {
   font-family: sans-serif;
 }
 
-#waveform {
-  margin-top: 5%;
-}
-
-#key-table {
-  margin-top: -10%;
-}
-
-#code-text {
-  color: lime;
-}
-
-#inputs {
+kbd {
   display: block;
-  text-align: center;
+  font-size: 4rem;
 }
 
 .keys {
@@ -55,16 +43,28 @@ body,html {
   box-shadow: 0 0 1rem #ffc600;
 }
 
-kbd {
-  display: block;
-  font-size: 4rem;
-}
-
 .sound {
   font-size: 0.5em;
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #ffc600;
+}
+
+#waveform {
+  margin-top: 5%;
+}
+
+#key-table {
+  margin-top: -10%;
+}
+
+#code-text {
+  color: lime;
+}
+
+#inputs {
+  display: block;
+  text-align: center;
 }
 
 #navbar ul {

@@ -1,9 +1,4 @@
-
-
-function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
-    e.target.classList.remove('playing');
-}
+const keys = Array.from(document.querySelectorAll('.key'));
 
 var wavesurfer = WaveSurfer.create({
     container: '#waveform',
@@ -13,6 +8,12 @@ var wavesurfer = WaveSurfer.create({
 });
 
 var audioEnabled = true;
+
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+}
+
 function playSound(e) {
     if (audioEnabled) {
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
@@ -30,51 +31,41 @@ function playSound(e) {
     }
 }
 
-for (var letter in alphabet) {
-    var newTD = document.createElement('td');
-    newTD.setAttribute("data-key",alphabet[letter]["key"]);
-    newTD.className = "key";
-    var newKbd = document.createElement('kbd');
-    newKbd.innerHTML = letter;
-    var newSpan = document.createElement('span');
-    newSpan.className = "sound";
-    newSpan.innerHTML = alphabet[letter]["spoken"] + '<br>' + alphabet[letter]["code"];
-    var newAudio = document.createElement("audio");
-    newAudio.setAttribute("data-key",alphabet[letter]["key"]);
-    newAudio.src = alphabet[letter]["audio"];
-    newTD.appendChild(newKbd);
-    newTD.appendChild(newSpan);
-    newTD.appendChild(newAudio);
-    if (document.getElementById("first-row").cells.length <= 12) {
-        document.getElementById("first-row").appendChild(newTD);
-    }
-    else {
-        document.getElementById("second-row").appendChild(newTD);
+function keyBuilder(object) {
+    for (var key in object) {
+        var newTD = document.createElement('td');
+        newTD.setAttribute("data-key",object[key]["key"]);
+        newTD.className = "key";
+        var newKbd = document.createElement('kbd');
+        newKbd.innerHTML = key;
+        var newSpan = document.createElement('span');
+        newSpan.className = "sound";
+        newSpan.innerHTML = object[key]["spoken"] + '<br>' + object[key]["code"];
+        var newAudio = document.createElement("audio");
+        newAudio.setAttribute("data-key",object[key]["key"]);
+        newAudio.src = object[key]["audio"];
+        newTD.appendChild(newKbd);
+        newTD.appendChild(newSpan);
+        newTD.appendChild(newAudio);
+        if (isNaN(key)) {
+            if (document.getElementById("first-row").cells.length <= 12) {
+                document.getElementById("first-row").appendChild(newTD);
+            }
+            else {
+                document.getElementById("second-row").appendChild(newTD);
+            }
+        }
+        else {
+            document.getElementById("number-row").appendChild(newTD);
+        }
     }
 }
 
+keyBuilder(alphabet);
+keyBuilder(numbers);
 
-for (var number in numbers) {
-    var newTD = document.createElement('td');
-    newTD.setAttribute("data-key",numbers[number]["key"]);
-    newTD.className = "key";
-    var newKbd = document.createElement('kbd');
-    newKbd.innerHTML = number;
-    var newSpan = document.createElement('span');
-    newSpan.className = "sound";
-    newSpan.innerHTML = numbers[number]["spoken"] + '<br>' + numbers[number]["code"];
-    var newAudio = document.createElement("audio");
-    newAudio.setAttribute("data-key",numbers[number]["key"]);
-    newAudio.src = numbers[number]["audio"];
-    newTD.appendChild(newKbd);
-    newTD.appendChild(newSpan);
-    newTD.appendChild(newAudio);
-    document.getElementById("number-row").appendChild(newTD);
-}
-
-const keys = Array.from(document.querySelectorAll('.key'));
 keys.forEach(function(key) {
     key.addEventListener('transitionend', removeTransition)
 });
-window.addEventListener('keydown', playSound);
 
+window.addEventListener('keydown', playSound);
