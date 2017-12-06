@@ -37,6 +37,8 @@ function findKey(beeps) {
     return "Unknown code"
 }
 
+// TODO: prevent alphanumeric character typing in decoder input field (only morse), add transition styling
+
 function addDitDah(e) {
     console.log(e);
     if (e.keyCode === 90) {
