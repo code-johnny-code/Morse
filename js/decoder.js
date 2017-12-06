@@ -1,16 +1,16 @@
-var decodedMessage = "";
+let decodedMessage = "";
 
 function decodeMorse(morse) {
     decodedMessage = "";
-    var code = morse.formText.value;
+    let code = morse.formText.value;
     console.log(code);
-    var codeArray = code.split(' ');
-    for (var beeps of codeArray) {
+    let codeArray = code.split(' ');
+    for (let beeps of codeArray) {
         if (beeps === '|') {
             decodedMessage = decodedMessage + ' '
         }
         else {
-            var decodedCharacter = findKey(beeps);
+            let decodedCharacter = findKey(beeps);
             decodedMessage = decodedMessage + decodedCharacter;
         }
     }
@@ -19,16 +19,16 @@ function decodeMorse(morse) {
     }
 
 function findKey(beeps) {
-    for (var letter in alphabet) {
+    for (let letter in alphabet) {
         if (alphabet[letter].code === beeps) {
             return letter
         }
-    for (var number in numbers) {
+    for (let number in numbers) {
         if (numbers[number].code === beeps) {
             return number
         }
     }
-    for (var character in punctuation) {
+    for (let character in punctuation) {
         if (punctuation[character].code === beeps) {
             return character
         }

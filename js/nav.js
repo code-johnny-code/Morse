@@ -7,9 +7,9 @@ const navItems = {
     "Github": "https://github.com/code-johnny-code/morse"
 };
 
-for (var item in navItems) {
-    var li = document.createElement('li');
-    var anchor = document.createElement('a');
+for (let item in navItems) {
+    let li = document.createElement('li');
+    let anchor = document.createElement('a');
     anchor.innerHTML = item;
     anchor.setAttribute("href", navItems[item]);
     li.appendChild(anchor);

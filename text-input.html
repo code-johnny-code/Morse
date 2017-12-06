@@ -15,7 +15,8 @@
 <div id="inputs">
   <form action="#" onsubmit="return false;">
     <input type="text" name="formText">
-    <input id="button" type="button" value="Play Morse" onclick="textToMorse(this.form)">
+    <input id="button" type="button" value="Play Morse" onclick="textToMorse(this.form, true)">
+    <input id="button" type="button" value="Text Only" onclick="textToMorse(this.form, false)">
   </form>
   <p style="color: white"><em>Allowed special characters: . , ? ! - / @ ( )</em></p>
   <h1 id="code-text"></h1>

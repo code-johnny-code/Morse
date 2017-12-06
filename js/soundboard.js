@@ -1,12 +1,12 @@
 
-var wavesurfer = WaveSurfer.create({
+let wavesurfer = WaveSurfer.create({
     container: '#waveform',
     waveColor: 'lime',
     interact: false,
     hideScrollbar: true
 });
 
-var audioEnabled = true;
+let audioEnabled = true;
 
 function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
@@ -31,16 +31,16 @@ function playSound(e) {
 }
 
 function keyBuilder(object) {
-    for (var key in object) {
-        var newTD = document.createElement('td');
+    for (let key in object) {
+        let newTD = document.createElement('td');
         newTD.setAttribute("data-key",object[key]["key"]);
         newTD.className = "key";
-        var newKbd = document.createElement('kbd');
+        let newKbd = document.createElement('kbd');
         newKbd.innerHTML = key;
-        var newSpan = document.createElement('span');
+        let newSpan = document.createElement('span');
         newSpan.className = "sound";
         newSpan.innerHTML = object[key]["spoken"] + '<br>' + object[key]["code"];
-        var newAudio = document.createElement("audio");
+        let newAudio = document.createElement("audio");
         newAudio.setAttribute("data-key",object[key]["key"]);
         newAudio.src = object[key]["audio"];
         newTD.appendChild(newKbd);

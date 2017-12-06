@@ -1,33 +1,35 @@
-var wavesurfer = WaveSurfer.create({
+let wavesurfer = WaveSurfer.create({
     container: '#waveform',
     waveColor: 'lime',
     interact: false,
     hideScrollbar: true
 });
-var audioList = [];
-var transmission = "";
+let audioList = [];
+let transmission = "";
+let textOnly = false;
 
-function textToMorse(form) {
+function textToMorse(form, sound) {
   transmission = "";
   audioList = [];
-  var userInput = form.formText.value;
-  var userInputArray = userInput.split(' ');
-  var codedOutput = "";
-  for (var word of userInputArray) {
+  textOnly = sound;
+  let userInput = form.formText.value;
+  let userInputArray = userInput.split(' ');
+  let codedOutput = "";
+  for (let word of userInputArray) {
       word = word.replace(/[^0-9a-z.,/.,?!()@-]/gi, '');
-      for (var character of word) {
+      for (let character of word) {
           if (!isNaN(character)) {
-              var charObject = numbers[character];
+              let charObject = numbers[character];
               codedOutput = codedOutput + charObject.code + ' ';
               audioList.push(charObject.audio)
           }
           else if (character.toUpperCase() in alphabet) {
-              var charObject = alphabet[character.toUpperCase()];
+              let charObject = alphabet[character.toUpperCase()];
               codedOutput = codedOutput + charObject.code + ' ';
               audioList.push(charObject.audio)
           }
           else {
-              var charObject = punctuation[character];
+              let charObject = punctuation[character];
               codedOutput = codedOutput + charObject.code + ' ';
               audioList.push(charObject.audio)
           }
@@ -37,12 +39,14 @@ function textToMorse(form) {
   }
   const codeText = document.getElementById("code-text");
   codeText.innerHTML = codedOutput.slice(0, -2);
-  playTransmission(audioList);
+  if (textOnly) {
+      playTransmission(audioList);
+  }
 }
 
 function playTransmission(audioList) {
-  var index = 1;
-  var audio = document.createElement('audio');
+  let index = 1;
+  let audio = document.createElement('audio');
   audio.src = audioList[0];
   console.log(audio.src);
   if (audio.src === "sounds/space.ogg") {
