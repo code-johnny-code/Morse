@@ -272,7 +272,7 @@ const punctuation = {
     ")": {
         "code": "-.--.-",
         "spoken": "DAH-DIT-DAH-DAH-DIT-DAH",
-        "audio": "sound/closeParens_morse_code.ogg",
+        "audio": "sounds/closeParens_morse_code.ogg",
         "key": "41"
     }
 };
