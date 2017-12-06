@@ -16,11 +16,19 @@
 
 <div id="inputs">
   <form action="#" onsubmit="return false;">
-    <input type="text" name="formText">
+    <input id="message-box" type="text" name="formText">
     <input id="button" type="button" value="Decode Morse" onclick="decodeMorse(this.form)">
   </form>
   <h1 id="code-text"></h1>
 </div>
+
+
+<table id="key-table" class="keys">
+  <tr>
+    <td style="font-size: 5em" id="dit-key" class="key" data-key="90">•</td>
+    <td style="font-size: 5em" id="dah-key" class="key" data-key="88">−</td>
+  </tr>
+</table>
 
 <script src="js/nav.js"></script>
 <script src="js/alphanum.js"></script>

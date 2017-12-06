@@ -1,4 +1,5 @@
 let decodedMessage = "";
+let messageBox = document.getElementById('message-box');
 
 function decodeMorse(morse) {
     decodedMessage = "";
@@ -35,3 +36,18 @@ function findKey(beeps) {
     }
     return "Unknown code"
 }
+
+function addDitDah(e) {
+    console.log(e);
+    if (e.keyCode === 90) {
+        messageBox.value = messageBox.value + '•';
+    }
+    if (e.keyCode === 88) {
+        messageBox.value = messageBox.value + '−';
+    }
+    if (e.keyCode === 32) {
+        messageBox.value = messageBox.value + ' ';
+    }
+}
+
+window.addEventListener('keydown', addDitDah);
