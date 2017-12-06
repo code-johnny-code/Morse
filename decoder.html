@@ -10,21 +10,21 @@
 
 <nav id="navbar"></nav>
 
-<div id="waveform"></div>
+<div id="decoded">
+  <h1 id="decoded-text"></h1>
+</div>
 
 <div id="inputs">
   <form action="#" onsubmit="return false;">
     <input type="text" name="formText">
-    <input id="button" type="button" value="Play Morse" onclick="textToMorse(this.form)">
+    <input id="button" type="button" value="Decode Morse" onclick="decodeMorse(this.form)">
   </form>
-  <p style="color: white"><em>Allowed special characters: . , ? ! - / @ ( )</em></p>
   <h1 id="code-text"></h1>
 </div>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.4.0/wavesurfer.min.js"></script>
-<script src="js/alphanum.js"></script>
-<script src="js/textMorse.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/alphanum.js"></script>
+<script src="js/decoder.js"></script>
 
 </body>
 </html>

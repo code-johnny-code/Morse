@@ -58,11 +58,11 @@ kbd {
   margin-top: -10%;
 }
 
-#code-text {
+#code-text, #decoded-text {
   color: lime;
 }
 
-#inputs {
+#inputs, #decoded {
   display: block;
   text-align: center;
 }

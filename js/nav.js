@@ -3,6 +3,7 @@ const navList = document.createElement('ul');
 const navItems = {
     "Soundboard": "index.html",
     "Text Input": "text-input.html",
+    "Decoder": "decoder.html",
     "Github": "https://github.com/code-johnny-code/morse"
 };
 

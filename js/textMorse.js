@@ -14,15 +14,20 @@ function textToMorse(form) {
   var userInputArray = userInput.split(' ');
   var codedOutput = "";
   for (var word of userInputArray) {
-      word = word.replace(/[^0-9a-z]/gi, '');
+      word = word.replace(/[^0-9a-z.,/.,?!()@-]/gi, '');
       for (var character of word) {
           if (!isNaN(character)) {
               var charObject = numbers[character];
               codedOutput = codedOutput + charObject.code + ' ';
               audioList.push(charObject.audio)
           }
-          else {
+          else if (character.toUpperCase() in alphabet) {
               var charObject = alphabet[character.toUpperCase()];
+              codedOutput = codedOutput + charObject.code + ' ';
+              audioList.push(charObject.audio)
+          }
+          else {
+              var charObject = punctuation[character];
               codedOutput = codedOutput + charObject.code + ' ';
               audioList.push(charObject.audio)
           }

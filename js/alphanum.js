@@ -219,3 +219,60 @@ const numbers = {
         "key": "57"
     }
 };
+
+const punctuation = {
+    ".": {
+        "code": ".-.-.-",
+        "spoken": "DIT-DAH-DIT-DAH-DIT-DAH",
+        "audio": "sounds/period_morse_code.ogg",
+        "key": "190"
+    },
+    ",": {
+        "code": "--..--",
+        "spoken": "DAH-DAH-DIT-DIT-DAH-DAH",
+        "audio": "sounds/comma_morse_code.ogg",
+        "key": "188"
+    },
+    "?": {
+        "code": "..--..",
+        "spoken": "DIT-DIT-DAH-DAH-DIT-DIT",
+        "audio": "sounds/question_morse_code.ogg",
+        "key": "63"
+    },
+    "!": {
+        "code": "-.-.--",
+        "spoken": "DAH-DIT-DAH-DIT-DAH-DAH",
+        "audio": "sounds/exclamation_morse_code.ogg",
+        "key": "33"
+    },
+    "-": {
+        "code": "-....-",
+        "spoken": "DAH-DIT-DIT-DIT-DIT-DAH",
+        "audio": "sounds/dash_morse_code.ogg",
+        "key": "45"
+    },
+    "/": {
+        "code": "-..-.",
+        "spoken": "DAH-DIT-DIT-DAH-DIT",
+        "audio": "sounds/slash_morse_code.ogg",
+        "key": "191"
+    },
+    "@": {
+        "code": ".--.-.",
+        "spoken": "DIT-DAH-DAH-DIT-DAH",
+        "audio": "sounds/at_morse_code.ogg",
+        "key": "64"
+    },
+    "(": {
+        "code": "-.--.",
+        "spoken": "DAH-DIT-DAH-DAH-DIT",
+        "audio": "sounds/openParens_morse_code.ogg",
+        "key": "40"
+    },
+    ")": {
+        "code": "-.--.-",
+        "spoken": "DAH-DIT-DAH-DAH-DIT-DAH",
+        "audio": "sound/closeParens_morse_code.ogg",
+        "key": "41"
+    }
+};
