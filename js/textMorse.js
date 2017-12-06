@@ -48,12 +48,7 @@ function playTransmission(audioList) {
   let index = 1;
   let audio = document.createElement('audio');
   audio.src = audioList[0];
-  console.log(audio.src);
-  if (audio.src === "sounds/space.ogg") {
-  }
-  else {
-      wavesurfer.load(audioList[0]);
-  }
+  wavesurfer.load(audioList[0]);
   audio.play();
   audio.onended = function() {
       wavesurfer.empty();

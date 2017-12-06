@@ -3,7 +3,6 @@ let decodedMessage = "";
 function decodeMorse(morse) {
     decodedMessage = "";
     let code = morse.formText.value;
-    console.log(code);
     let codeArray = code.split(' ');
     for (let beeps of codeArray) {
         if (beeps === '|') {
