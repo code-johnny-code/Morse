@@ -1,3 +1,4 @@
+//TODO: combine objects and adjust processing to accomodate
 const alphabet = {
     "A": {
         "code": "•−",
