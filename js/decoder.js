@@ -40,17 +40,18 @@ function findKey(beeps) {
 // TODO: prevent alphanumeric character typing in decoder input field (only morse), add transition styling
 
 function addDitDah(e) {
-    if (e.keyCode === 90) {
-        messageBox.value = messageBox.value + '•';
-    }
-    if (e.keyCode === 88) {
-        messageBox.value = messageBox.value + '−';
-    }
-    if (e.keyCode === 32) {
-        messageBox.value = messageBox.value + ' ';
-    }
-    if (e.keyCode === 8) {
-        messageBox.value = messageBox.value.slice(0,-1);
+    switch (e.keyCode) {
+        case 90:
+            messageBox.value = messageBox.value + '•';
+            break;
+        case 88:
+            messageBox.value = messageBox.value + '−';
+            break;
+        case 32:
+            messageBox.value = messageBox.value + ' ';
+            break;
+        case 8:
+            messageBox.value = messageBox.value.slice(0,-1);
     }
 }
 
