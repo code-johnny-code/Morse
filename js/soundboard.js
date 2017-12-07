@@ -15,26 +15,48 @@ function removeTransition(e) {
 
 function playSound(e) {
     if (audioEnabled) {
-        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-        if (!audio) return;
-        const key = document.querySelector(`[data-key="${e.keyCode}"]`);
-        audio.onended = function () {
-            wavesurfer.empty();
-            audioEnabled = true
-        };
-        wavesurfer.load(audio.src);
-        key.classList.add('playing');
-        audio.currentTime = 0;
-        audio.play();
-        audioEnabled = false;
+        if (e instanceof KeyboardEvent) {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            if (!audio) return;
+            const key = document.querySelector(`[data-key="${e.keyCode}"]`);
+            audio.onended = function () {
+                wavesurfer.empty();
+                audioEnabled = true
+            };
+            wavesurfer.load(audio.src);
+            key.classList.add('playing');
+            audio.currentTime = 0;
+            audio.play();
+            audioEnabled = false;
+        }
+        else {
+            const dataKey = e.getAttribute("data-key");
+            const audio = document.querySelector(`audio[data-key="${dataKey}"]`);
+            if (!audio) return;
+            const key = document.querySelector(`[data-key="${dataKey}"]`);
+            audio.onended = function () {
+                wavesurfer.empty();
+                audioEnabled = true
+            };
+            wavesurfer.load(audio.src);
+            key.classList.add('playing');
+            audio.currentTime = 0;
+            audio.play();
+            audioEnabled = false;
+        }
     }
 }
 
 function keyBuilder(object) {
     for (let key in object) {
         let newTD = document.createElement('td');
+        let firstRow = document.getElementById("first-row");
+        let secondRow = document.getElementById("second-row");
+        let numRow = document.getElementById("number-row");
+        let puncRow = document.getElementById("punc-row");
         newTD.setAttribute("data-key",object[key]["key"]);
         newTD.className = "key";
+        newTD.setAttribute("onclick", "playSound(this)");
         let newKbd = document.createElement('kbd');
         newKbd.innerHTML = key;
         let newSpan = document.createElement('span');
@@ -46,22 +68,25 @@ function keyBuilder(object) {
         newTD.appendChild(newKbd);
         newTD.appendChild(newSpan);
         newTD.appendChild(newAudio);
-        if (isNaN(key)) {
-            if (document.getElementById("first-row").cells.length <= 12) {
-                document.getElementById("first-row").appendChild(newTD);
+        if (key.match(/[a-z]/i)) {
+            if (firstRow.cells.length <= 12) {
+                firstRow.appendChild(newTD);
             }
             else {
-                document.getElementById("second-row").appendChild(newTD);
+                secondRow.appendChild(newTD);
             }
         }
+        else if (!isNaN(key)) {
+            numRow.appendChild(newTD);
+        }
         else {
-            document.getElementById("number-row").appendChild(newTD);
+            puncRow.appendChild(newTD);
         }
     }
 }
 
-keyBuilder(alphabet);
-keyBuilder(numbers);
+//TODO: refactor building after combining alpha/num/punct objects
+keyBuilder(alphaNumPlus);
 
 const keys = Array.from(document.querySelectorAll('.key'));
 
