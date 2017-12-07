@@ -10,18 +10,17 @@
 
 <nav id="navbar"></nav>
 
-<div id="decoded">
+<div style="position: relative;margin-top: 10%; height: 200px" id="decoded">
   <h1 id="decoded-text"></h1>
 </div>
 
-<div id="inputs">
+<div id="inputs" class="cursor">
   <form action="#" onsubmit="return false;">
     <input id="message-box" type="text" name="formText">
     <input id="button" type="button" value="Decode Morse" onclick="decodeMorse(this.form)">
   </form>
   <h1 id="code-text"></h1>
 </div>
-
 
 <table id="key-table" class="keys">
   <tr>

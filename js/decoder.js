@@ -40,7 +40,6 @@ function findKey(beeps) {
 // TODO: prevent alphanumeric character typing in decoder input field (only morse), add transition styling
 
 function addDitDah(e) {
-    console.log(e);
     if (e.keyCode === 90) {
         messageBox.value = messageBox.value + '•';
     }
@@ -50,6 +49,14 @@ function addDitDah(e) {
     if (e.keyCode === 32) {
         messageBox.value = messageBox.value + ' ';
     }
+    if (e.keyCode === 8) {
+        messageBox.value = messageBox.value.slice(0,-1);
+    }
 }
 
 window.addEventListener('keydown', addDitDah);
+window.onkeydown = function(e) {
+    if (e.keyCode === 32 && e.target === document.body) {
+        e.preventDefault();
+    }
+};
